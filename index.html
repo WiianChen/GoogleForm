@@ -47,7 +47,7 @@
       flex-wrap: wrap;
     }
     h1, form {
-      width: 150%;
+      width: 100%;
     }
     h1 {
       padding-top: 16px;
@@ -154,6 +154,36 @@
             </div>
           </div>
 
+          <!-- 甜度 -->
+          <div class="input-group">
+            <label>甜度</label>
+            <div class="radio-group row">
+              <!-- 01 -->
+              <div class="four columns">
+                <input type="radio" id="01" name="suger_radio" value="去糖" checked>
+                <label for="01">去糖</label>
+              </div>
+
+              <!-- 02 -->
+              <div class="four columns">
+                <input type="radio" id="02" name="suger_radio" value="微糖">
+                <label for="02">微糖</label>
+              </div>
+
+              <!-- 03 -->
+              <div class="four columns">
+                <input type="radio" id="03" name="suger_radio" value="少糖">
+                <label for="03">少糖</label>
+                
+              <!-- 04 -->
+              <div class="four columns">
+                <input type="radio" id="04" name="suger_radio" value="正常">
+                <label for="04">正常</label>
+
+              </div>
+            </div>
+          </div>
+              
           <!-- 下拉式選單 -->
           <div class="input-group">
             <label for="demo_select">詢問類別</label>
@@ -187,9 +217,18 @@
         var name = $('#demo_name').val() || '未填寫';
 
         // 冰塊
-        var sex = function() {
+        var ice = function() {
           var v;
           $('[name="ice_radio"]').each(function() {
+            if($(this).prop('checked') === true) v = $(this).val();
+          });
+          return v;
+        };
+        
+        // 甜度
+        var suger = function() {
+          var v;
+          $('[name="suger_radio"]').each(function() {
             if($(this).prop('checked') === true) v = $(this).val();
           });
           return v;
@@ -204,8 +243,8 @@
         // post
         var data = {
           'entry.520206782': name,
-          'entry.788003628': sex(),
-          'entry.1695419294': cat,
+          'entry.788003628': ice(),
+          'entry.1695419294': suger(),
           'entry.480261776': msg
         };
         $.ajax({
