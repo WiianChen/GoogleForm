@@ -86,7 +86,7 @@
 
   </style>
 
-  <link rel="shortcut icon" href="http://www.limi.com.tw/img/logo.png"/>
+  <link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
 
   <!-- Google Tag Manager-->
   <script>
@@ -112,39 +112,49 @@
       
       <!-- form -->
       <section class="six columns half form">
-        <h1>Contact us</h1>
+        <h1>點起來</h1>
         <form>
           <!-- 姓名 -->
           <div class="input-group">
             <label for="demo_name">姓名</label>
-            <input class="u-full-width" type="text" placeholder="test@mailbox.com" id="demo_name">
+            <input class="u-full-width" type="text" placeholder="who?" id="demo_name">
           </div>
 
-          <!-- 性別 -->
+          <!-- 冰塊 -->
           <div class="input-group">
-            <label>姓別</label>
+            <label>冰塊</label>
             <div class="radio-group row">
-              <!-- 男性 -->
+              <!-- 01 -->
               <div class="four columns">
-                <input type="radio" id="male" name="demo_radio" value="male" checked>
-                <label for="male">男性</label>
+                <input type="radio" id="01" name="ice_radio" value="去冰" checked>
+                <label for="01">去冰</label>
               </div>
 
-              <!-- 女性 -->
+              <!-- 02 -->
               <div class="four columns">
-                <input type="radio" id="female" name="demo_radio" value="female">
-                <label for="female">女性</label>
+                <input type="radio" id="02" name="ice_radio" value="微冰">
+                <label for="02">微冰</label>
               </div>
 
-              <!-- 法人 -->
+              <!-- 03 -->
               <div class="four columns">
-                <input type="radio" id="legal" name="demo_radio" value="legal">
-                <label for="legal">法人</label>
+                <input type="radio" id="03" name="ice_radio" value="少冰">
+                <label for="03">少冰</label>
+                
+              <!-- 04 -->
+              <div class="four columns">
+                <input type="radio" id="04" name="ice_radio" value="正常">
+                <label for="04">正常</label>
+                
+              <!-- 05 -->
+              <div class="four columns">
+                <input type="radio" id="legal" name="ice_radio" value="熱的">
+                <label for="05">熱的</label>
               </div>
             </div>
           </div>
 
-          <!-- 詢問類別 -->
+          <!-- 下拉式選單 -->
           <div class="input-group">
             <label for="demo_select">詢問類別</label>
             <select class="u-full-width" id="demo_select">
@@ -155,7 +165,7 @@
             </select>
           </div>
 
-          <!-- 詢問內容 -->
+          <!-- 簡答 -->
           <div class="input-group">
             <label for="demo_textarea">詢問內容</label>
             <textarea class="u-full-width" id="demo_textarea"></textarea>
@@ -176,10 +186,10 @@
         // 姓名
         var name = $('#demo_name').val() || '未填寫';
 
-        // 性別
+        // 冰塊
         var sex = function() {
           var v;
-          $('[name="demo_radio"]').each(function() {
+          $('[name="ice_radio"]').each(function() {
             if($(this).prop('checked') === true) v = $(this).val();
           });
           return v;
@@ -193,14 +203,14 @@
 
         // post
         var data = {
-          'entry.248434920': name,
-          'entry.1569038925': sex(),
-          'entry.1509045370': cat,
-          'entry.758411200': msg
+          'entry.520206782': name,
+          'entry.788003628': sex(),
+          'entry.1695419294': cat,
+          'entry.480261776': msg
         };
         $.ajax({
           type: 'POST',
-          url: 'https://docs.google.com/forms/d/e/1FAIpQLSeTgHEpVpuV_OHakO-25X-O7I4T1tIzIAUqHWLRvUqG9e6TvQ/formResponse',
+          url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeEm9RtilSZOukneJS-rpAhcu4JYBvbfckK0cHXkvz_7XZonA/formResponse',
           data: data,
           contentType: 'application/json',
           dataType: 'jsonp',
