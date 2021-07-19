@@ -120,6 +120,17 @@
             <input class="u-full-width" type="text" placeholder="who?" id="demo_name">
           </div>
           <!-- 下拉式選單 -->
+          <!-- 喝什麼 -->
+          <div class="input-group">
+            <label for="demo_select">喝什麼</label>
+            <select class="u-full-width" id="opt_select">
+              <option value="0" value="0" selected disabled>請選擇</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+            </select>
+          </div>
           <!-- 甜度 -->
           <div class="input-group">
             <label for="demo_select">幾多甜</label>
@@ -143,17 +154,7 @@
               <option value="熱的">熱的</option>
             </select>
           </div>
-          <!-- 喝什麼 -->
-          <div class="input-group">
-            <label for="demo_select">喝什麼</label>
-            <select class="u-full-width" id="opt_select">
-              <option value="0" value="0" selected disabled>請選擇</option>
-              <option value="01">01</option>
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="04">04</option>
-            </select>
-          </div>
+
           
           <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
 
@@ -201,8 +202,8 @@
         var data = {
           'entry.520206782': name,
           'entry.788003628': opt,
-          'entry.1695419294': ice,
-          'entry.480261776': suger
+          'entry.1695419294': suger,
+          'entry.480261776': ice
         };
         $.ajax({
           type: 'POST',
