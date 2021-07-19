@@ -13,7 +13,7 @@
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
-      font-size: 12px;
+      font-size: 16px;
     }
     html, body, .container, .row {
       margin: 0;
@@ -35,7 +35,7 @@
       height: 100%;
     }
     .bg {
-      background: url('https://picsum.photos/1920/1024?image=883') center center;
+      background: url('https://cdn.walkerland.com.tw/images/upload/poi/p67368/m61256/2ff4950615e0d17aa364428cd7e4db217926e353.jpg') center center;
       background-size: cover;
     }
     .form {
@@ -119,8 +119,43 @@
             <label for="demo_name">姓名</label>
             <input class="u-full-width" type="text" placeholder="who?" id="demo_name">
           </div>
-
+          <!-- 下拉式選單 -->
           <!-- 冰塊 -->
+          <div class="input-group">
+            <label for="demo_select">幾多冰</label>
+            <select class="u-full-width" id="ice_select">
+              <option value="0" value="0" selected disabled>請選擇</option>
+              <option value="去冰">去冰</option>
+              <option value="微冰">微冰</option>
+              <option value="少冰">少冰</option>
+              <option value="正常">正常</option>
+              <option value="熱的">熱的</option>
+            </select>
+          </div>
+          <!-- 甜度 -->
+          <div class="input-group">
+            <label for="demo_select">幾多甜</label>
+            <select class="u-full-width" id="suger_select">
+              <option value="0" value="0" selected disabled>請選擇</option>
+              <option value="去糖">去糖</option>
+              <option value="微糖">微糖</option>
+              <option value="少糖">少糖</option>
+              <option value="正常">正常</option>
+            </select>
+          </div>
+          <!-- 喝什麼 -->
+          <div class="input-group">
+            <label for="demo_select">幾多甜</label>
+            <select class="u-full-width" id="opt_select">
+              <option value="0" value="0" selected disabled>請選擇</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+            </select>
+          </div>
+          
+          <!-- rideo點選 -->
           <div class="input-group">
             <label>冰塊</label>
             <div class="radio-group row">
@@ -217,7 +252,7 @@
         var name = $('#demo_name').val() || '未填寫';
 
         // 冰塊
-        var ice = function() {
+        var ice_radio = function() {
           var v;
           $('[name="ice_radio"]').each(function() {
             if($(this).prop('checked') === true) v = $(this).val();
@@ -233,9 +268,12 @@
           });
           return v;
         };
-
-        // 類別
-        var cat = $('#demo_select').val() || '未填寫';
+        // 選項
+        var opt = $('#opt_select').val() || '未填寫';
+        // 冰塊
+        var ice = $('#ice_select').val() || '未填寫';
+        // 甜度
+        var suger = $('#suger_select').val() || '未填寫';
 
         // 內容
         var msg = $('#demo_textarea').val() || '未填寫';
@@ -243,9 +281,9 @@
         // post
         var data = {
           'entry.520206782': name,
-          'entry.788003628': ice(),
-          'entry.1695419294': suger(),
-          'entry.480261776': msg
+          'entry.788003628': opt,
+          'entry.1695419294': ice,
+          'entry.480261776': suger
         };
         $.ajax({
           type: 'POST',
