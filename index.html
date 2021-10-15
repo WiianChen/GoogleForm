@@ -173,8 +173,23 @@
               <option value="熱">熱</option>
             </select>
           </div>
+          <!-- 性別 -->
+          <div class="input-group">
+            <label>白玉</label>
+            <div class="radio-group row">
+              <!-- 加 -->
+              <div class="four columns">
+                <input type="radio" id="yes" name="demo_radio" value="yes" checked>
+                <label for="加">加</label>
+              </div>
 
-          
+              <!-- 不加 -->
+              <div class="four columns">
+                <input type="radio" id="no" name="demo_radio" value="no">
+                <label for="不加">不加</label>
+              </div>
+            </div>
+          </div>          
           <button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
 
         </form>
@@ -189,7 +204,14 @@
         
         // 姓名
         var name = $('#demo_name').val() || '未填寫';
-
+       // 性別
+        var sex = function() {
+      var v;
+      $('[name="demo_radio"]').each(function() {
+        if($(this).prop('checked') === true) v = $(this).val();
+      });
+      return v;
+    };
         // 冰塊
         var ice_radio = function() {
           var v;
@@ -213,7 +235,14 @@
         var ice = $('#ice_select').val() || '未填寫';
         // 甜度
         var suger = $('#suger_select').val() || '未填寫';
-
+        // 白玉
+        var sex = function() {
+          var v;
+          $('[name="demo_radio"]').each(function() {
+            if($(this).prop('checked') === true) v = $(this).val();
+          });
+          return v;
+        };
         // 內容
         var msg = $('#demo_textarea').val() || '未填寫';
 
@@ -223,6 +252,7 @@
           'entry.788003628': opt,
           'entry.1695419294': suger,
           'entry.480261776': ice
+          'entry.129086762': sex(),
         };
         $.ajax({
           type: 'POST',
