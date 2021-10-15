@@ -211,23 +211,6 @@
       });
       return v;
     };
-        // 冰塊
-        var ice_radio = function() {
-          var v;
-          $('[name="ice_radio"]').each(function() {
-            if($(this).prop('checked') === true) v = $(this).val();
-          });
-          return v;
-        };
-               
-        // 甜度
-        var suger = function() {
-          var v;
-          $('[name="suger_radio"]').each(function() {
-            if($(this).prop('checked') === true) v = $(this).val();
-          });
-          return v;
-        };
         // 選項
         var opt = $('#opt_select').val() || '未填寫';
         // 冰塊
