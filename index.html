@@ -230,14 +230,6 @@
         
         // 姓名
         var name = $('#demo_name').val() || '未填寫';
-       // 性別
-        var sex = function() {
-      var v;
-      $('[name="demo_radio"]').each(function() {
-        if($(this).prop('checked') === true) v = $(this).val();
-      });
-      return v;
-    };
         // 選項
         var opt = $('#opt_select').val() || '未填寫';
         // 冰塊
